@@ -65,6 +65,14 @@ class ViewController: UIViewController {
         textfield.text = ""
     }
     
+    @IBAction func deleteKeyTapped(_ sender: UIButton) {
+        let success = keychainWrapper.remove(key: "testStringKey")
+        
+        print("Remove Successful: \(success)")
+    }
+    
+    
+    
     @IBAction func loadTapped(_ sender: AnyObject) {
         textfield.text = keychainWrapper.string(forKey: "testStringKey")
     }
@@ -104,5 +112,11 @@ class ViewController: UIViewController {
         testObjectIntTextField.text = ""
     }
     
+    @IBAction func deleteAllTapped(_ sender: UIButton) {
+        
+        let success = keychainWrapper.removeAllKeys()
+        
+        print("Remove All Successful: \(success)")
+    }
 }
 
