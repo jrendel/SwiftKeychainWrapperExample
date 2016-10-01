@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var testObjectStringTextField: UITextField!
     @IBOutlet weak var testObjectIntTextField: UITextField!
     
-    let keychainWrapper = KeychainWrapper(serviceName: KeychainWrapper.defaultKeychainWrapper.serviceName, accessGroup: "group.myAccessGroup")
+    let keychainWrapper = KeychainWrapper(serviceName: KeychainWrapper.standard.serviceName, accessGroup: "group.myAccessGroup")
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func deleteKeyTapped(_ sender: UIButton) {
-        let success = keychainWrapper.remove(key: "testStringKey")
+        let success = keychainWrapper.removeObject(forKey: "testStringKey")
         
         print("Remove Successful: \(success)")
     }
